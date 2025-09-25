@@ -1,3 +1,9 @@
+This is code is published under MIT License
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
+![Status](https://img.shields.io/badge/Project-Active-brightgreen)
+
 ## 📘 README.md
 
 ```markdown
