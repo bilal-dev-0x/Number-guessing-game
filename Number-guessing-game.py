@@ -1,41 +1,75 @@
 import random
-n = random.randint(1, 100)
-guesses = 0
 
-while True:
-    guesses += 1
-    a = int(input("Guess the number : "))
-    if a == n:
-        print(f"You guessed correct number in {guesses} attempts.")
-        break
-    
-    elif a < n:
-        print("Higher number....Please.")
-    
+HIGH_SCORE_FILE = "Hi-score.txt"
+
+
+def load_high_score():
+    try:
+        with open(HIGH_SCORE_FILE, "r") as file:
+            content = file.read().strip()
+            return int(content) if content else None
+    except (FileNotFoundError, ValueError):
+        return None
+
+
+def save_high_score(score):
+    with open(HIGH_SCORE_FILE, "w") as file:
+        file.write(str(score))
+
+
+def get_guess():
+    while True:
+        try:
+            guess = int(input("Guess the number (1-100): "))
+            if 1 <= guess <= 100:
+                return guess
+            print("Please enter a number between 1 and 100.")
+        except ValueError:
+            print("Invalid input. Please enter a whole number.")
+
+
+def show_feedback(guesses):
+    if guesses <= 10:
+        print("Incredible! You guessed it in very few attempts.")
+    elif guesses < 20:
+        print("Good work. Try to improve the attempt count next time.")
     else:
-        print("Lower number....Please.")
+        print("That took many attempts. Keep practicing.")
 
-if guesses <= 10:
-    print("You have done it in some attempts....this is incredible.")
 
-elif 10 < guesses < 20:
-    print("You are doing good....improve it more.")
+def main():
+    secret_number = random.randint(1, 100)
+    guesses = 0
+    high_score = load_high_score()
 
-else:
-    print("Too much attempts .... try to lower the attempts count.")
+    print("Welcome to the Number Guessing Game!")
+    print("I have selected a number between 1 and 100.")
 
-# with open("Hi-score.txt", "w") as f:
-#     f.write(str(guesses))
+    while True:
+        guesses += 1
+        guess = get_guess()
 
-with open("Hi-score.txt","r") as f:
-    content = f.read()
-    if int(content) < (guesses):
-        print("Try to make record...bro")
-    elif int(content) > guesses:
-        with open("Hi-score.txt", "w") as f:
-            f.write(str(guesses))
-            print(f"High score is {guesses}")
+        if guess == secret_number:
+            print(f"You guessed the correct number in {guesses} attempts.")
+            break
+        if guess < secret_number:
+            print("Higher number, please.")
+        else:
+            print("Lower number, please.")
+
+    show_feedback(guesses)
+
+    if high_score is None:
+        save_high_score(guesses)
+        print(f"First high score saved: {guesses}")
+    elif guesses < high_score:
+        save_high_score(guesses)
+        print(f"New high score: {guesses}")
+    elif guesses == high_score:
+        print(f"You matched the high score: {high_score}")
     else:
-        print(f"High score is {content}")
+        print(f"Current high score is {high_score}. Try to beat it next time.")
 
-# First make File of Hi-score.txt
+
+if __name__ == "__main__":
+    main()
