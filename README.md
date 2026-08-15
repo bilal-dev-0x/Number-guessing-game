@@ -1,12 +1,11 @@
 <p align="center">
-  <img src="logo1.png" width="220" alt="Number Guessing Game logo" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,45:2563EB,100:22C55E&height=170&section=header&text=Number%20Guessing%20Game&fontSize=38&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=A%20clean%20Python%20CLI%20game%20with%20hints%2C%20score%20tracking%2C%20and%20input%20validation&descSize=14&descAlignY=56" alt="Number Guessing Game banner" />
 </p>
-
-<h1 align="center">Number Guessing Game</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/Type-CLI%20Game-2563EB?style=for-the-badge" alt="CLI Game" />
+  <img src="https://img.shields.io/badge/Focus-Logic%20%2B%20Files-7C3AED?style=for-the-badge" alt="Logic and files" />
   <img src="https://img.shields.io/badge/Level-Beginner-22C55E?style=for-the-badge" alt="Beginner" />
   <img src="https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge" alt="MIT License" />
 </p>
@@ -15,22 +14,32 @@
 
 ## Overview
 
-A simple Python command-line game where the computer chooses a random number between `1` and `100`, and the player keeps guessing until the correct number is found.
+Number Guessing Game is a beginner-friendly Python command-line project where the computer chooses a hidden number between `1` and `100`, and the player tries to guess it using higher/lower hints.
 
-The project also stores the best score in `Hi-score.txt`, so the player can try to beat their lowest attempt count.
+It also stores the best score in `Hi-score.txt`, making the game a small but useful practice project for logic, loops, validation, and file handling.
 
 ---
 
-## Features
+## Project Highlights
 
-| Feature | Detail |
-|---|---|
-| Random number | Uses `random.randint(1, 100)` |
-| Input validation | Rejects invalid and out-of-range guesses |
-| Hint system | Tells the player to guess higher or lower |
-| Attempt counter | Counts total guesses |
-| High score | Saves the lowest attempt count in `Hi-score.txt` |
-| Beginner friendly | Good practice for loops, files, functions, and conditions |
+<table>
+  <tr>
+    <td><b>Random Challenge</b></td>
+    <td>The secret number is generated with Python's `random` module.</td>
+  </tr>
+  <tr>
+    <td><b>Smart Hints</b></td>
+    <td>The game tells the player whether to guess higher or lower.</td>
+  </tr>
+  <tr>
+    <td><b>Input Validation</b></td>
+    <td>Invalid text and out-of-range numbers are handled cleanly.</td>
+  </tr>
+  <tr>
+    <td><b>High Score</b></td>
+    <td>The lowest attempt count is saved and reused across runs.</td>
+  </tr>
+</table>
 
 ---
 
@@ -40,7 +49,6 @@ The project also stores the best score in `Hi-score.txt`, so the player can try 
 Number-guessing-game/
 |-- Number-guessing-game.py
 |-- Hi-score.txt
-|-- logo1.png
 |-- LICENSE
 `-- README.md
 ```
@@ -76,13 +84,14 @@ New high score: 3
 
 ## Concepts Practiced
 
-- `random.randint()`
-- `while` loops
-- `try` / `except` input handling
-- Functions
-- Conditional logic
-- File reading and writing
-- Simple game state management
+| Concept | Practice |
+|---|---|
+| Random numbers | `random.randint()` |
+| Loops | Repeating guesses until the answer is correct |
+| Functions | Smaller reusable blocks for score, input, and feedback |
+| Exceptions | Handling invalid input with `try` / `except` |
+| Files | Reading and writing `Hi-score.txt` |
+| Conditions | Comparing guesses and updating game state |
 
 ---
 
@@ -91,10 +100,15 @@ New high score: 3
 - Add difficulty levels.
 - Add replay without restarting the script.
 - Add a scoreboard with dates.
-- Convert the game into a small GUI app.
+- Add tests for high-score logic.
+- Convert the project into a small GUI game.
 
 ---
 
 <p align="center">
-  <b>A clean beginner Python game focused on logic, loops, and file handling.</b>
+  <b>A compact Python game built to practice logic, validation, and file-based state.</b>
+</p>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:22C55E,50:2563EB,100:0F172A&height=95&section=footer" alt="Footer wave" />
 </p>
